@@ -68,7 +68,7 @@
 
 ## ⚙️ 개발 환경 및 기술 스택
 - ![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=flat-square&logo=python&logoColor=white)  
-- ![Selenium](https://img.shields.io/badge/Selenium-4.23-43B02A?style=flat-square&logo=selenium&logoColor=white)  
+- ![Selenium](https://img.shields.io/badge/Selenium-4.28-43B02A?style=flat-square&logo=selenium&logoColor=white)  
 - ![WebDriverManager](https://img.shields.io/badge/WebDriver--manager-Automatic%20Driver%20Setup-green?style=flat-square)  
 - ![OpenPyXL](https://img.shields.io/badge/OpenPyXL-Excel%20Library-blue?style=flat-square)  
 

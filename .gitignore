@@ -1,0 +1,11 @@
+# Python-related files and folders
+__pycache__/
+*.pyc
+venv/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Driver executable
+chromedriver.exe

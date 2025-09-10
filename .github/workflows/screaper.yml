@@ -1,0 +1,48 @@
+name: Dynamic Web Scraping
+
+# 워크플로 실행 조건
+# 1. 'main' 브랜치에 코드가 푸시될 때 실행
+# 2. 매일 새벽 3시 30분(UTC 기준)에 실행
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '30 3 * * *'
+
+jobs:
+  run-scrapers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium webdriver-manager openpyxl
+          # 만약 driver_utils.py가 별도 파일로 있다면, 해당 파일을 import할 수 있도록 경로를 설정합니다.
+
+      - name: Run Music Scraper
+        run: python music_scroll.py
+
+      - name: Run SNS Scraper
+        run: python sns_scrap.py
+
+      - name: Run Poll Scraper
+        run: python poll_scraper.py
+        
+      # 생성된 엑셀 파일을 커밋하여 저장소에 업데이트
+      - name: Commit and Push Excel Files
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add *.xlsx
+          git commit -m "🤖 Update data files from scraper" || echo "No changes to commit"
+          git push

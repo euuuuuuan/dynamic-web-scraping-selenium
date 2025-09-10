@@ -5,9 +5,15 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from driver_utils import get_chrome_driver
+import os
 
-# 크롬 드라이버 생성
-driver = webdriver.Chrome()
+# 다운로드 경로 설정
+desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop')
+download_dir = os.path.join(desktop, 'dynamic-web-scraping')
+
+# 드라이버를 유틸리티 함수를 통해 가져옴. 다운로드 경로 설정도 함께 전달
+driver = get_chrome_driver(download_dir=download_dir)
 wait = WebDriverWait(driver, 10)
 
 try:

@@ -16,6 +16,7 @@ def get_chrome_driver(download_dir=None):
             "plugins.always_open_pdf_externally": True
         })
     
-    # ChromeDriver를 자동으로 설치 및 관리하여 드라이버 인스턴스 생성
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    # 수정된 부분: 옵션만 인자로 전달하고, 드라이버 경로는 webdriver-manager가 자동으로 처리합니다.
+    driver = webdriver.Chrome(options=options)
+    
     return driver

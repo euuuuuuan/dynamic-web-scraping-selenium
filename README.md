@@ -89,12 +89,6 @@ python music_scroll.py
 python poll_scraper.py
 python sns_scrap.py
 ```
-3️⃣ GitHub Actions를 통한 자동 실행
-GitHub 저장소의 .github/workflows/ 폴더에 워크플로 파일 추가
-
-코드가 푸시될 때마다 또는 특정 시간에 자동 실행
-
-실행 후 생성된 엑셀/PDF 파일 자동 커밋 → 저장소 최신 상태 유지
 ---
 📂 프로젝트 구조 예시
 ```
